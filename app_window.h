@@ -5,6 +5,7 @@
 
 # include "glut_window.h"
 # include "User.h"
+# include "Enemy.h"
 
 // The functionality of your application should be implemented inside AppWindow
 class AppWindow : public GlutWindow
@@ -13,6 +14,7 @@ class AppWindow : public GlutWindow
     float _markx, _marky;
     int _w, _h;
     User* user;	//create instance of user
+    Enemy* enemy; //create instance of user
 
    public :
     AppWindow ( const char* label, int x, int y, int w, int h );

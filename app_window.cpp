@@ -10,8 +10,7 @@ AppWindow::AppWindow ( const char* label, int x, int y, int w, int h )
    addMenuEntry ( "Option 0", evOption0 );
    addMenuEntry ( "Option 1", evOption1 );
 	
-   user = new User(-0.05, -0.7, 0.1, 0.05);
-//   shoot = false;
+   user = new User(-0.05, -0.7, 0.1, 0.05);	//initialize user with default values
 }
 
 // mouse events are in window coordinates, but your scene is in [0,1]x[0,1],
@@ -26,16 +25,7 @@ void AppWindow::windowToScene ( float& x, float &y )
 void AppWindow::handle ( const Event& e )
  {
    bool rd=true;
-   user->handle(e);
-/*
-    if ( e.type == Keyboard ){
-		if (e.type == ' ')
-			shoot = true;
-	}
-
-	if (shoot)
-		user->draw();
-		*/
+   user->handle(e);	//calls user's handle function
 
    if (rd) redraw(); // ask the window to be rendered when possible
 }
@@ -54,7 +44,7 @@ void AppWindow::draw ()
    glMatrixMode( GL_MODELVIEW );
    glLoadIdentity();
    
-   user->draw();
+   user->draw();	//calls user's draw function
 
    glFlush();         
    glutSwapBuffers();

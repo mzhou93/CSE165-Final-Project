@@ -11,6 +11,7 @@ AppWindow::AppWindow ( const char* label, int x, int y, int w, int h )
    addMenuEntry ( "Option 1", evOption1 );
 	
    user = new User(-0.05, -0.7, 0.1, 0.05);	//initialize user with default values
+   enemy = new Enemy(-0.05, 0.7, 0.1, 0.05);	//initialize enemy with default values
 }
 
 // mouse events are in window coordinates, but your scene is in [0,1]x[0,1],
@@ -45,6 +46,7 @@ void AppWindow::draw ()
    glLoadIdentity();
    
    user->draw();	//calls user's draw function
+   enemy->draw();
 
    glFlush();         
    glutSwapBuffers();

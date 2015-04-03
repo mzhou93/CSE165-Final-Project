@@ -2,20 +2,16 @@
 #define USER_H
 
 # include "glut_window.h"
+# include "Bullet.h"
 
 class User{
 public:
 	float x, y, l, h;
-	//bool shoot;
+	Bullet* bullet;	//create instance of bullet
 	
 	User(){}
 
-	User(float x, float y, float l, float h) {	
-		this->x = x;
-		this->y = y;
-		this->l = l;
-		this->h = h;
-	}
+	User(float x, float y, float l, float h);
 	
 	~User(){}
 

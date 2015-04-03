@@ -12,8 +12,7 @@ class AppWindow : public GlutWindow
     enum MenuEv { evOption0, evOption1 };
     float _markx, _marky;
     int _w, _h;
-	User* user;
-	//bool shoot;
+    User* user;	//create instance of user
 
    public :
     AppWindow ( const char* label, int x, int y, int w, int h );

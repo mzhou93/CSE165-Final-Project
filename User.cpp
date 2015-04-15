@@ -1,13 +1,15 @@
 #include "User.h"
 #include "app_window.h"
 
+#include <iostream>
+
+static bool shoot;
 
 User::User(float x, float y, float l, float h){	
 	this->x = x;
 	this->y = y;
 	this->l = l;
 	this->h = h;
-	bullet = new Bullet(x + 0.05, y + 0.035);
 }
 
 void User::draw(){
@@ -20,13 +22,19 @@ void User::draw(){
 	glVertex2d(x, y - h);
 	glEnd();
 
-	//draw trinagle of user (where bullets shoot out of)
+	//draw triangle of user (where bullets shoot out of)
 	glBegin(GL_TRIANGLES);
 	glColor3d(0.0, 0.8, 0.8);
 	glVertex3f( x + 0.025, y, -1.0);
 	glVertex3f( x + 0.05, y + 0.035, -1.0);
 	glVertex3f( x + 0.075, y, -1.0);
 	glEnd();
+	
+	if (shoot){
+		for (int i = 0; i < bullets.size(); i++){
+			bullets[i]->display();
+		}
+	}
 }
 
 void User::handle (const GlutWindow::Event& e){
@@ -45,8 +53,10 @@ void User::handle (const GlutWindow::Event& e){
 		break;
 	}
 
-   if ( e.type==GlutWindow::Keyboard ) 
-    if (e.key == ' '){
-		bullet->draw();
+    if ( e.type == GlutWindow::Keyboard ){ 
+		if (e.key == ' '){	//space bar
+			shoot = true;
+			bullets.push_back(new Bullet(x + .05f, y + .035f));	//create a bullet 
 		}
+	}
 }

@@ -17,7 +17,7 @@ public:
     ~Enemy(){}
 
     void draw();
-
+	void handle();
 };
 
 

@@ -3,15 +3,18 @@
 
 # include "glut_window.h"
 # include "Bullet.h"
+# include <vector>
+
+using namespace std;
 
 class User{
 public:
 	float x, y, l, h;
-	Bullet* bullet;	//create instance of bullet
-	
+	vector <Bullet*> bullets;
+
 	User(){}
 
-	User(float x, float y, float l, float h);
+	User(float x, float y, float l, float h);  
 	
 	~User(){}
 

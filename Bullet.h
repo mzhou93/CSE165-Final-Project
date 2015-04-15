@@ -11,7 +11,8 @@ public:
 	Bullet(float x, float y);
 
 	~Bullet(){	}
-	void draw();
+
+	void display();
 };
 
 # endif

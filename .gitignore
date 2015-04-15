@@ -41,3 +41,34 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+freeglut/freeglut.h
+freeglut/freeglut.lib
+glutapp.xcodeproj/project.pbxproj
+*.user
+visualc10/obj/glutapp_Debug/app_window.obj
+*.obj
+*.log
+*.tlog
+*.ilk
+*.lastbuildstate
+visualc10/obj/glutapp_Debug/glutapp.pdb
+*.cache
+*.exe
+visualc10/ipch/glutapp-ab24d5bc/glutapp-c024483c.ipch
+*.manifest
+visualc10/obj/glutapp_Debug/vc100.idb
+*.vcxproj
+makefile
+*.bat
+*.pdb
+visualc10/glutapp.sln
+*.dll
+visualc10/glutapp.sdf
+freeglut/freeglut_std.h
+freeglut/freeglut_ext.h
+*.xcworkspacedata
+glutapp.xcodeproj/project.xcworkspace/xcuserdata/angelo.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcscheme
+glutapp.xcodeproj/xcuserdata/angelo.xcuserdatad/xcschemes/xcschememanagement.plist
+*.txt
+visualc10/glutapp.suo

@@ -1,11 +1,9 @@
-
 #include "Enemy.h"
 #include "app_window.h"
 
 #include <iostream>
 
 void Enemy::draw(){
-
     glBegin(GL_POLYGON);
     glColor3d(0.9, 0.0, 0.0);
     glVertex2d(x, y);
@@ -21,6 +19,8 @@ void Enemy::draw(){
     glVertex3f( x + 0.075, y+h-.05, -1.0);
 
     glEnd();
-
 }
 
+void Enemy::handle(){
+
+}

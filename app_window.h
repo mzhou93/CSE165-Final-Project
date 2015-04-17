@@ -6,6 +6,7 @@
 # include "glut_window.h"
 # include "User.h"
 # include "Enemy.h"
+# include <vector>
 
 // The functionality of your application should be implemented inside AppWindow
 class AppWindow : public GlutWindow
@@ -13,8 +14,12 @@ class AppWindow : public GlutWindow
     enum MenuEv { evOption0, evOption1 };
     float _markx, _marky;
     int _w, _h;
-	User* user;	//create instance of user
-	Enemy* enemy; //create instance of enemy
+    User* user;
+    std::vector< Enemy* > army1;
+    std::vector< Enemy* > army2;
+    std::vector< Enemy* > army3;
+    std::vector< Enemy* > army4;
+    bool shoot;
 
    public :
     AppWindow ( const char* label, int x, int y, int w, int h );

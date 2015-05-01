@@ -2,30 +2,34 @@
 # include <iostream>
 # include "app_window.h"
 
+AppWindow* AppWindow::window = NULL;
+
 AppWindow::AppWindow ( const char* label, int x, int y, int w, int h )
     :GlutWindow ( label, x, y, w, h )
 {
+	window = this;
     _markx = 0;
     _marky = 0;
-    addMenuEntry ( "Option 0", evOption0 );
-    addMenuEntry ( "Option 1", evOption1 );
 
-    double increment = 0.0; // double
+    float increment = -0.75f; 
 
-    user = new User(-0.05, -0.7, 0.1, 0.05);
+    user = new User(-0.05f, -0.7f, 0.1f, 0.05f);
 
     for (int i = 0; i < 10; i++) { // create the aliens
-        army1.push_back(new Enemy(-.9+increment, .85, 0.1, 0.05,0,0,.7));
-        army2.push_back(new Enemy(-.9+increment, 0.72, 0.1, 0.05,.7,0,0));
-        army3.push_back(new Enemy(-.9+increment, 0.59, 0.1, 0.05,0,.7,0));
-        army4.push_back(new Enemy(-.9+increment, 0.46, 0.1, 0.05,.7,0,.7));
-        increment = increment + .15;
+        army1.push_back(new Enemy(increment, 0.85f, 0.1f, 0.05f, 0.0f, 0.0f, 0.7f));
+        army2.push_back(new Enemy(increment, 0.72f, 0.1f, 0.05f, 0.7f, 0.0f, 0.0f));
+        army3.push_back(new Enemy(increment, 0.59f, 0.1f, 0.05f, 0.0f, 0.7f, 0.0f));
+        army4.push_back(new Enemy(increment, 0.46f, 0.1f, 0.05f, 0.7f, 0.0f, 0.7f));
+        increment += 0.15f;
     }
 
     //animate(army1);
+}
 
-
-
+AppWindow* AppWindow::instance(){
+	if(!window)
+		window = new AppWindow("Space Invaders", 300, 300, 640, 480);
+	return window;
 }
 
 // mouse events are in window coordinates, but your scene is in [0,1]x[0,1],
@@ -41,12 +45,16 @@ void AppWindow::handle ( const Event& e )
 {
     bool rd=true;
     user->handle(e);
+	/*
+	for (int i = 0; i < 4; i++)
+		for (int j = 0; j < user->bullets.size(); j++){
+			cout << army1[i]->x << " " << army1[i]->y << endl;
+			if (army1[i]->y == user->bullets[j]->y){
+				user->bullets[i]->hit = true;
+			}
+		}
+		*/
 
-    if ( e.type == Keyboard ){
-        if (e.type == ' ') {
-
-        }
-    }
 
     if (rd) redraw(); // ask the window to be rendered when possible
 
@@ -74,7 +82,6 @@ void AppWindow::draw ()
         army3[i]->draw();
         army4[i]->draw();
     }
-
 
     glFlush();
     glutSwapBuffers();

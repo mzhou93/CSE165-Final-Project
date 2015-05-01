@@ -11,17 +11,19 @@
 // The functionality of your application should be implemented inside AppWindow
 class AppWindow : public GlutWindow
  { private :
-    enum MenuEv { evOption0, evOption1 };
+	static AppWindow* window;
     float _markx, _marky;
     int _w, _h;
+
+ public:
     User* user;
     std::vector< Enemy* > army1;
     std::vector< Enemy* > army2;
     std::vector< Enemy* > army3;
     std::vector< Enemy* > army4;
-    bool shoot;
 
    public :
+	static AppWindow* instance();
     AppWindow ( const char* label, int x, int y, int w, int h );
     void windowToScene ( float& x, float &y );
 

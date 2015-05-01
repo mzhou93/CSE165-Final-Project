@@ -3,7 +3,6 @@
 #include "app_window.h"
 
 #include <iostream>
-#include <unistd.h>
 #include <time.h>
 
 using namespace std;
@@ -20,9 +19,9 @@ void Enemy::draw(){
 
     glBegin(GL_TRIANGLES);
     glColor3d(r, g, b);
-    glVertex3f( x + 0.025, y+h-.05, 1.0);
-    glVertex3f( x + 0.05, y-0.1, -1.0);
-    glVertex3f( x + 0.075, y+h-.05, -1.0);
+    glVertex3f( x + 0.025f, y + h -.05f, 1.0f);
+    glVertex3f( x + 0.05f, y - 0.1f, -1.0f);
+    glVertex3f( x + 0.075f, y + h - .05f, -1.0f);
 
     glEnd();
 
@@ -32,11 +31,11 @@ void Enemy::draw(){
 
 void Enemy::movement(int animate) { // -.85 < x < .85 and y < -1
 
-    y -= .001f;
-    cout << x << endl;
+    y -= .00001f;
+//    cout << x << endl;
 
-    if (x <= .002)
-        glutPostRedisplay();
+//    if (x <= .002f)
+//        glutPostRedisplay();
 
 }
 

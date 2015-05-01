@@ -8,8 +8,7 @@ public:
 
     float x, y, l, h, r, g, b;
 
-    const int timersec = 5;
-    Enemy(){}
+	Enemy(){}
 
     Enemy(float x, float y, float l, float h) { // default constructor will be red
         this->x = x;

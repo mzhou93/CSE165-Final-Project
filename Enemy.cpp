@@ -1,4 +1,3 @@
-
 #include "Enemy.h"
 #include "app_window.h"
 
@@ -27,15 +26,17 @@ void Enemy::draw(){
 
     movement(1);
 
+    //cout << x+l << endl;
+
 }
 
 void Enemy::movement(int animate) { // -.85 < x < .85 and y < -1
 
-    y -= .00001f;
-//    cout << x << endl;
+    y -= .0001f;
+    //    cout << x << endl;
 
-//    if (x <= .002f)
-//        glutPostRedisplay();
+    //    if (x <= .002f)
+    glutPostRedisplay();
 
 }
 
@@ -44,6 +45,3 @@ void Enemy::movement(int animate) { // -.85 < x < .85 and y < -1
  *      from right to border
  *          increment right
  */
-
-
-

@@ -8,16 +8,18 @@ using namespace std;
 
 class Bullet{
 public:
-	float x, y;
-	bool hit;
+    float x, y;
+    bool hit;
 
-	Bullet();
-	Bullet(float x, float y);
+    Bullet();
+    Bullet(float x, float y);
 
-	~Bullet(){ cout << "bullet deleted" <<endl;	}
 
-	bool collision();
-	void display();
+    ~Bullet(){ cout << "bullet deleted" <<endl;	}
+
+    bool collision();
+    void dead();
+    void display();
 };
 
 # endif

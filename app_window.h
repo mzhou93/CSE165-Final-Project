@@ -1,4 +1,3 @@
-
 // Ensure the header file is included only once in multi-file projects
 #ifndef APP_WINDOW_H
 #define APP_WINDOW_H
@@ -11,7 +10,7 @@
 // The functionality of your application should be implemented inside AppWindow
 class AppWindow : public GlutWindow
  { private :
-	static AppWindow* window;
+    static AppWindow* window;
     float _markx, _marky;
     int _w, _h;
 
@@ -21,9 +20,16 @@ class AppWindow : public GlutWindow
     std::vector< Enemy* > army2;
     std::vector< Enemy* > army3;
     std::vector< Enemy* > army4;
+    std::vector< Enemy* > army5;
+    std::vector< Enemy* > army6;
+    std::vector< Enemy* > army7;
+    std::vector< Enemy* > army8;
+    std::vector< Enemy* > army9;
+    std::vector< Enemy* > army10;
+
 
    public :
-	static AppWindow* instance();
+    static AppWindow* instance();
     AppWindow ( const char* label, int x, int y, int w, int h );
     void windowToScene ( float& x, float &y );
 

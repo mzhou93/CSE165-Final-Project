@@ -8,7 +8,7 @@ public:
 
     float x, y, l, h, r, g, b;
 
-	Enemy(){}
+    Enemy(){}
 
     Enemy(float x, float y, float l, float h) { // default constructor will be red
         this->x = x;

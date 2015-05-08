@@ -10,7 +10,9 @@ using namespace std;
 class User{
 public:
 	float x, y, l, h;
-	vector <Bullet*> bullets;
+    vector <Bullet*> bullets;
+
+    void deletebullet();
 
 	User(){}
 
@@ -23,4 +25,3 @@ public:
 };
 
 #endif
-

@@ -1,5 +1,7 @@
 # include <iostream>
 # include "app_window.h"
+# include "Text.h"
+# include <string>
 
 AppWindow* AppWindow::window = NULL;
 
@@ -16,12 +18,12 @@ AppWindow::AppWindow ( const char* label, int x, int y, int w, int h )
 
     for (int i = 0; i < 10; i++) { // create the aliens
 
-        if (i == 0) {
+        /*if (i == 0) {
             army1.push_back(new Enemy(increment, 0.85f, 0.1f, 0.05f, 0.0f, 0.0f, 0.7f));
             army1.push_back(new Enemy(increment, 0.72f, 0.1f, 0.05f, 0.7f, 0.0f, 0.0f));
             army1.push_back(new Enemy(increment, 0.59f, 0.1f, 0.05f, 0.0f, 0.7f, 0.0f));
             army1.push_back(new Enemy(increment, 0.46f, 0.1f, 0.05f, 0.7f, 0.0f, 0.7f));
-        }
+        }*/
 
         if (i == 1) {
             army2.push_back(new Enemy(increment, 0.85f, 0.1f, 0.05f, 0.0f, 0.0f, 0.7f));
@@ -144,11 +146,15 @@ void AppWindow::draw ()
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 
-    user->draw();
+	std::string scoreText;
+	scoreText = "Score: ";
+	displayScore->drawText(scoreText.data(),scoreText.length(), -0.8, 0.8);
 
-    for (int i = 0; i < army1.size(); i++) {
+	user->draw();
+	
+    /*for (int i = 0; i < army1.size(); i++) {
         army1[i]->draw();
-    }
+    }*/
 
     for (int i = 0; i < army2.size(); i++) {
         army2[i]->draw();
@@ -158,9 +164,9 @@ void AppWindow::draw ()
         army3[i]->draw();
     }
 
-    for (int i = 0; i < army1.size(); i++) {
+    /*for (int i = 0; i < army1.size(); i++) {
         army1[i]->draw();
-    }
+    }*/
 
     for (int i = 0; i < army4.size(); i++) {
         army4[i]->draw();
@@ -189,6 +195,8 @@ void AppWindow::draw ()
     for (int i = 0; i < army10.size(); i++) {
         army10[i]->draw();
     }
+
+	
 
     glFlush();
     glutSwapBuffers();

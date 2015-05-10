@@ -5,6 +5,7 @@
 # include "glut_window.h"
 # include "User.h"
 # include "Enemy.h"
+# include "Text.h"
 # include <vector>
 
 // The functionality of your application should be implemented inside AppWindow
@@ -16,7 +17,10 @@ class AppWindow : public GlutWindow
 
  public:
     User* user;
-    std::vector< Enemy* > army1;
+	Text* displayScore;
+	Text* gameOverDisplay;
+	Text* winDisplay;
+    //std::vector< Enemy* > army1;
     std::vector< Enemy* > army2;
     std::vector< Enemy* > army3;
     std::vector< Enemy* > army4;

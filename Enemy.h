@@ -30,7 +30,7 @@ public:
     ~Enemy(){}
 
     void draw();
-    void movement(int animate);
+    void movement();
 
 };
 

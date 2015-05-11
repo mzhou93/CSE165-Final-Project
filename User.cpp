@@ -48,20 +48,24 @@ void User::handle (const GlutWindow::Event& e){
     switch ( e.key )
     { case GLUT_KEY_LEFT:	//handles left key
         if(x > -1.0f)
+			if (!AppWindow::instance()->gameover)
             x-=incx;
-        cout << x << endl;
+    //    cout << x << endl;
         break;
       case GLUT_KEY_RIGHT:	//handles right key
         if (x < 0.9f)
+			if (!AppWindow::instance()->gameover)
             x+=incx;
-        cout << x << endl;
+     //   cout << x << endl;
         break;
     }
 
     if ( e.type == GlutWindow::Keyboard ){
         if (e.key == ' '){	//space bar
-            shoot = true;
-            bullets.push_back(new Bullet(x + .05f, y + .035f));	//create a bullet
-        }
+			if (!AppWindow::instance()->gameover){
+				shoot = true;
+		        bullets.push_back(new Bullet(x + .05f, y + .035f));	//create a bullet
+			}
+		}
     }
 }

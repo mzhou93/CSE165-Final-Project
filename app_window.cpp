@@ -14,16 +14,10 @@ AppWindow::AppWindow ( const char* label, int x, int y, int w, int h )
 
     float increment = -0.75f;
 
-    user = new User(-0.05f, -0.7f, 0.1f, 0.05f);
+    user = new User(0.0f, -0.7f, 0.1f, 0.05f);
+	gameover = false;
 
     for (int i = 0; i < 10; i++) { // create the aliens
-
-        /*if (i == 0) {
-            army1.push_back(new Enemy(increment, 0.85f, 0.1f, 0.05f, 0.0f, 0.0f, 0.7f));
-            army1.push_back(new Enemy(increment, 0.72f, 0.1f, 0.05f, 0.7f, 0.0f, 0.0f));
-            army1.push_back(new Enemy(increment, 0.59f, 0.1f, 0.05f, 0.0f, 0.7f, 0.0f));
-            army1.push_back(new Enemy(increment, 0.46f, 0.1f, 0.05f, 0.7f, 0.0f, 0.7f));
-        }*/
 
         if (i == 1) {
             army2.push_back(new Enemy(increment, 0.85f, 0.1f, 0.05f, 0.0f, 0.0f, 0.7f));
@@ -88,14 +82,8 @@ AppWindow::AppWindow ( const char* label, int x, int y, int w, int h )
             army10.push_back(new Enemy(increment, 0.46f, 0.1f, 0.05f, 0.7f, 0.0f, 0.7f));
         }
 
-        /*army1.push_back(new Enemy(increment, 0.85f, 0.1f, 0.05f, 0.0f, 0.0f, 0.7f));
-        army2.push_back(new Enemy(increment, 0.72f, 0.1f, 0.05f, 0.7f, 0.0f, 0.0f));
-        army3.push_back(new Enemy(increment, 0.59f, 0.1f, 0.05f, 0.0f, 0.7f, 0.0f));
-        army4.push_back(new Enemy(increment, 0.46f, 0.1f, 0.05f, 0.7f, 0.0f, 0.7f));*/
-        increment += 0.15f;
+	    increment += 0.15f;
     }
-
-    //animate(army1);
 }
 
 AppWindow* AppWindow::instance(){
@@ -117,16 +105,6 @@ void AppWindow::handle ( const Event& e )
 {
     bool rd=true;
     user->handle(e);
-    /*
-    for (int i = 0; i < 4; i++)
-        for (int j = 0; j < user->bullets.size(); j++){
-            cout << army1[i]->x << " " << army1[i]->y << endl;
-            if (army1[i]->y == user->bullets[j]->y){
-                user->bullets[i]->hit = true;
-            }
-        }
-        */
-
 
     if (rd) redraw(); // ask the window to be rendered when possible
 
@@ -151,10 +129,6 @@ void AppWindow::draw ()
 	displayScore->drawText(scoreText.data(),scoreText.length(), -0.8, 0.8);
 
 	user->draw();
-	
-    /*for (int i = 0; i < army1.size(); i++) {
-        army1[i]->draw();
-    }*/
 
     for (int i = 0; i < army2.size(); i++) {
         army2[i]->draw();
@@ -163,10 +137,6 @@ void AppWindow::draw ()
     for (int i = 0; i < army3.size(); i++) {
         army3[i]->draw();
     }
-
-    /*for (int i = 0; i < army1.size(); i++) {
-        army1[i]->draw();
-    }*/
 
     for (int i = 0; i < army4.size(); i++) {
         army4[i]->draw();

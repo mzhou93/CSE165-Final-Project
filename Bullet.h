@@ -15,9 +15,9 @@ public:
     Bullet(float x, float y);
 
 
-    ~Bullet(){ cout << "bullet deleted" <<endl;	}
+    ~Bullet(){ 	}
 
-    bool collision();
+    int collision();
     void dead();
     void display();
 };

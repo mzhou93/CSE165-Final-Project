@@ -14,13 +14,12 @@ class AppWindow : public GlutWindow
     static AppWindow* window;
     float _markx, _marky;
     int _w, _h;
-
+	
  public:
     User* user;
 	Text* displayScore;
 	Text* gameOverDisplay;
 	Text* winDisplay;
-    //std::vector< Enemy* > army1;
     std::vector< Enemy* > army2;
     std::vector< Enemy* > army3;
     std::vector< Enemy* > army4;
@@ -30,7 +29,7 @@ class AppWindow : public GlutWindow
     std::vector< Enemy* > army8;
     std::vector< Enemy* > army9;
     std::vector< Enemy* > army10;
-
+	bool gameover;
 
    public :
     static AppWindow* instance();

@@ -24,24 +24,14 @@ void Enemy::draw(){
 
     glEnd();
 
-    movement(1);
-
-    //cout << x+l << endl;
-
+    movement();
 }
 
-void Enemy::movement(int animate) { // -.85 < x < .85 and y < -1
-
-    y -= .0001f;
-    //    cout << x << endl;
-
-    //    if (x <= .002f)
-    glutPostRedisplay();
-
+void Enemy::movement() { // -.85 < x < .85 and y < -1
+		y -= .0001f;
+	if( y > -.075){
+		glutPostRedisplay();
+	} 
+	else if( y < -.45)
+		AppWindow::instance()->gameover = true;
 }
-
-/*
- * from down to border
- *      from right to border
- *          increment right
- */

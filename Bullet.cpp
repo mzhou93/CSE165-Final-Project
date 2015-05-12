@@ -31,12 +31,12 @@ int Bullet::collision(){
             float ey =  AppWindow::instance()->army2[lives2]->y;
 
             AppWindow::instance()->windowToScene(ex, ey);
-
-            if (_y <= ey+0.0002 && _y >= ey-0.05f && _x >= ex && _x <= ex+0.1f){ // bullet collision
-                AppWindow::instance()->army2.erase(AppWindow::instance()->army2.begin()+lives2,AppWindow::instance()->army2.end()); // change
+			if (_y <= ey+0.0002 && _y >= ey-0.05f && _x >= ex && _x <= ex+0.1f){ // bullet collision
+				AppWindow::instance()->army2.erase(AppWindow::instance()->army2.begin()+lives2,AppWindow::instance()->army2.end()); // change
                 AppWindow::instance()->user->deletebullet();
                 lives2--;
-            }
+
+			}
         }
     }
 
@@ -183,8 +183,6 @@ int Bullet::collision(){
 }
 
 
-
-
 void Bullet::display(){	//draws bullet
     glBegin(GL_LINES);
 
@@ -195,10 +193,10 @@ void Bullet::display(){	//draws bullet
 
     glEnd();
 
-	if (y >= 0.9f) {
+	if (y >= 0.9f) {	//deletes bullet if it touches the wall
         AppWindow::instance()->user->deletebullet();
     }
-	else collision();
+	else collision();	
     glutPostRedisplay();
 
 }

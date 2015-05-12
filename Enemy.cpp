@@ -28,10 +28,9 @@ void Enemy::draw(){
 }
 
 void Enemy::movement() { // -.85 < x < .85 and y < -1
-		y -= .0001f;
-	if( y > -.075){
+	y -= .0001f;
+	if (!AppWindow::instance()->gameover )	
 		glutPostRedisplay();
-	} 
-	else if( y < -.45)
+	if( y < -.55 )
 		AppWindow::instance()->gameover = true;
 }

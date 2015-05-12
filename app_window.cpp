@@ -125,8 +125,8 @@ void AppWindow::draw ()
     glLoadIdentity();
 
 	std::string scoreText;
-	scoreText = "Score: ";
-	displayScore->drawText(scoreText.data(),scoreText.length(), -0.8, 0.8);
+	scoreText = "CSE165 Final Project by John, JP and Michelle";
+	displayScore->drawText(scoreText.data(),scoreText.length(), -0.8, 0.7);
 
 	user->draw();
 
@@ -166,7 +166,9 @@ void AppWindow::draw ()
         army10[i]->draw();
     }
 
-	
+	if (army2.empty() && army3.empty() && army4.empty() && army5.empty() && army6.empty() && army7.empty() && army8.empty() && army9.empty() && army10.data()){ 
+		gameover = true; //gameover if all enemies have been deleted
+	}
 
     glFlush();
     glutSwapBuffers();

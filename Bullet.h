@@ -3,7 +3,6 @@
 
 # include "glut_window.h"
 
-# include <iostream>;
 using namespace std;
 
 class Bullet{
@@ -18,7 +17,6 @@ public:
     ~Bullet(){ 	}
 
     int collision();
-    void dead();
     void display();
 };
 

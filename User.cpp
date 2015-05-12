@@ -42,30 +42,26 @@ void User::deletebullet() {
 }
 
 void User::handle (const GlutWindow::Event& e){
-   const float incx=0.025f;
-
-   if ( e.type == GlutWindow::SpecialKey )
-    switch ( e.key )
-    { case GLUT_KEY_LEFT:	//handles left key
-        if(x > -1.0f)
-			if (!AppWindow::instance()->gameover)
-            x-=incx;
-    //    cout << x << endl;
-        break;
-      case GLUT_KEY_RIGHT:	//handles right key
-        if (x < 0.9f)
-			if (!AppWindow::instance()->gameover)
-            x+=incx;
-     //   cout << x << endl;
-        break;
-    }
-
-    if ( e.type == GlutWindow::Keyboard ){
-        if (e.key == ' '){	//space bar
-			if (!AppWindow::instance()->gameover){
-				shoot = true;
-		        bullets.push_back(new Bullet(x + .05f, y + .035f));	//create a bullet
-			}
+   const float incx=0.03f;
+   if (!AppWindow::instance()->gameover){
+	   if ( e.type == GlutWindow::SpecialKey )
+		switch ( e.key )
+		{ case GLUT_KEY_LEFT:	//handles left key
+			if(x > -1.0f)		
+				x-=incx;
+			break;
+		  case GLUT_KEY_RIGHT:	//handles right key
+			if (x < 0.9f)
+				x+=incx;
+			break;
 		}
+
+		if ( e.type == GlutWindow::Keyboard ){
+			if (e.key == ' '){	//space bar
+					shoot = true;
+					bullets.push_back(new Bullet(x + .05f, y + .035f));	//create a bullet
+				}
+			}
     }
+   
 }
